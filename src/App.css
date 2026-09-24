@@ -187,6 +187,30 @@
   color: #64748b;
   text-align: center;
 }
+.note-content ul,
+.note-content ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.note-content ul {
+  list-style: disc;
+}
+
+.note-content ol {
+  list-style: decimal;
+}
+
+.note-content li {
+  display: list-item;
+}
+.note-content li[data-list="bullet"] {
+  list-style-type: disc;
+}
+
+.note-content li[data-list="ordered"] {
+  list-style-type: decimal;
+}
 
 @media (max-width: 600px) {
   .app-shell {
