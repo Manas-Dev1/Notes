@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { Notes, SearchBar, NoteForm } from "./components";
 
@@ -14,6 +14,13 @@ function App() {
   }, [notes]);
   const [search, setSearch] = useState("");
   const [editingNote, setEditingNote] = useState(null);
+  const formRef = useRef(null);
+  const listRef = useRef(null);
+  useEffect(() => {
+    if (editingNote) {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [editingNote]);
   const saveNote = (title, content) => {
     if (editingNote) {
       setNotes((prev) =>
@@ -26,6 +33,12 @@ function App() {
     }
 
     setNotes((prev) => [...prev, { id: Date.now(), title, content }]);
+    setTimeout(() => {
+      listRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   };
 
   const deleteNote = (noteId) => {
@@ -51,12 +64,14 @@ function App() {
         onSaveNote={saveNote}
         editingNote={editingNote}
         onCancelEdit={() => setEditingNote(null)}
+        ref={formRef}
       />
       <SearchBar search={search} setSearch={setSearch} />
       <Notes
         notes={filteredNotes}
         onEdit={setEditingNote}
         onDelete={deleteNote}
+        ref={listRef}
       />
     </main>
   );

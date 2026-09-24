@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 
-function NoteForm({ onSaveNote, editingNote, onCancelEdit }) {
+const NoteForm = forwardRef(function NoteForm(
+  { onSaveNote, editingNote, onCancelEdit },
+  ref,
+) {
   const [title, setTitle] = useState(editingNote?.title ?? "");
   const [content, setContent] = useState(editingNote?.content ?? "");
 
@@ -23,7 +26,7 @@ function NoteForm({ onSaveNote, editingNote, onCancelEdit }) {
     setContent("");
   };
   return (
-    <form className="panel" onSubmit={handleSubmit}>
+    <form ref={ref} className="panel" onSubmit={handleSubmit}>
       <h2 className="panel-heading">
         {editingNote ? "Edit note" : "Write a note"}
       </h2>
@@ -56,6 +59,6 @@ function NoteForm({ onSaveNote, editingNote, onCancelEdit }) {
       </div>
     </form>
   );
-}
+});
 
 export default NoteForm;

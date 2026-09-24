@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Note from "./Note";
-function Notes({ notes, onEdit, onDelete }) {
+const Notes = forwardRef(function Notes({ notes, onEdit, onDelete }, ref) {
   return (
-    <section className="notes-section" aria-label="Your notes">
+    <section ref={ref} className="notes-section" aria-label="Your notes">
       <h2 className="notes-heading">Your notes <span>({notes.length})</span></h2>
       <div className="notes-grid">
         {notes.length ? notes.map((note) => (
@@ -11,6 +11,6 @@ function Notes({ notes, onEdit, onDelete }) {
       </div>
     </section>
   );
-}
+});
 
 export default Notes;

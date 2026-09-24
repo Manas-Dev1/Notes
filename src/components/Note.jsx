@@ -8,7 +8,10 @@ function Note({ note, onEdit, onDelete }) {
         <div className="note-content" dangerouslySetInnerHTML={{ __html: note.content }} />
       </div>
       <div className="note-actions">
-        <button className="button button-secondary" onClick={() => onEdit(note)}>
+        <button
+          className="button button-secondary"
+          onClick={() => onEdit(note)}
+        >
           Edit note
         </button>
         <button
