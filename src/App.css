@@ -1,0 +1,206 @@
+.app-shell {
+  width: min(100% - 2rem, 56rem);
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #172554;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.app-header p {
+  margin: 0.4rem 0 0;
+  color: #64748b;
+}
+
+.panel {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 5%);
+}
+
+.panel-heading {
+  margin: 0 0 0.9rem;
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.search-input,
+.title-input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.65rem;
+  background: #fff;
+  color: #0f172a;
+  outline: none;
+}
+
+.search-input:focus,
+.title-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgb(99 102 241 / 15%);
+}
+
+.title-input {
+  margin-bottom: 0.9rem;
+}
+
+.editor-wrap {
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #c7d2fe;
+  border-radius: 0.75rem;
+  background: #f8faff;
+}
+
+.editor-wrap .ql-toolbar.ql-snow {
+  border: 0;
+  border-bottom: 1px solid #dbe3f5;
+  background: #eef2ff;
+}
+
+.editor-wrap .ql-container.ql-snow {
+  border: 0;
+}
+.editor-wrap .ql-editor {
+  min-height: 9rem;
+  color: #1e293b;
+}
+.editor-wrap .ql-editor.ql-blank::before {
+  color: #94a3b8;
+  font-style: normal;
+}
+
+.form-actions,
+.note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.button {
+  min-height: 2.5rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.button-primary {
+  background: #4f46e5;
+  color: white;
+}
+.button-primary:hover {
+  background: #4338ca;
+}
+.button-secondary {
+  border-color: #cbd5e1;
+  background: #fff;
+  color: #334155;
+}
+.button-secondary:hover {
+  background: #f1f5f9;
+}
+.button-danger {
+  border-color: #fecaca;
+  background: #fff;
+  color: #b91c1c;
+}
+.button-danger:hover {
+  background: #fef2f2;
+}
+
+.notes-section {
+  margin-top: 1.75rem;
+}
+.notes-heading {
+  margin: 0 0 0.9rem;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.note-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(15 23 42 / 5%);
+}
+
+.note-title {
+  margin: 0 0 0.65rem;
+  color: #172554;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+.note-content {
+  color: #475569;
+  overflow-wrap: anywhere;
+}
+.note-content p:first-child {
+  margin-top: 0;
+}
+.note-content p:last-child {
+  margin-bottom: 0;
+}
+.note-actions {
+  padding-top: 0.4rem;
+  /* border-top: 1px solid #f1f5f9; */
+}
+.empty-state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 0.8rem;
+  color: #64748b;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    width: min(100% - 1.25rem, 56rem);
+    padding-top: 1.5rem;
+  }
+  .panel {
+    padding: 1rem;
+    border-radius: 0.85rem;
+  }
+  .editor-wrap .ql-toolbar {
+    padding: 0.5rem;
+  }
+  .note-actions .button {
+    flex: 1;
+  }
+}
